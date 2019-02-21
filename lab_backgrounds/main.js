@@ -99,6 +99,50 @@ let ch3 = new ImageDialogChapter("Introduction", "assets/floor_room.jpg",
 
 //})();
 
+document.addEventListener('DOMContentLoaded', () => {
+	const nextBtn = document.querySelector(".next");
+	const backBtn = document.querySelector(".back");
+	const holder = document.querySelector(".proj-contents-holder");
+	let ids = [];
+	let visible = 0;
+	
+	for(child of holder.childNodes) {
+		try {
+			if(child.id.startsWith("pc-")) ids.push(child.id);
+		} catch(e){}
+	}
+
+	setVisble(ids, visible, ids.length-1);
+
+	nextBtn.addEventListener('click', e => {
+		if(visible<ids.length-1) {
+			visible++;
+		} else {
+			visible = 0;	
+		}
+		setVisble(ids, visible, visible===0? ids.length-1:visible-1);
+		// console.log(visible, ids)
+	});	
+	backBtn.addEventListener('click', e => {
+		if(visible>0) {
+			visible--;
+		} else {
+			visible = ids.length-1;	
+		}
+		setVisble(ids, visible, visible==ids.length-1? 0:visible+1);
+		// console.log(visible, ids)
+	});	
+
+	
+}, false);
+
+const setVisble = (ids, show, hide) => {
+	console.log(show, hide);
+	const element = document.querySelector(`#${ids[show]}`);
+	const element2 = document.querySelector(`#${ids[hide]}`);
+	element.classList.toggle("visible");
+	element2.classList.remove("visible");
+}
 
 
 
