@@ -251,8 +251,28 @@ footer {
 
 /* References Links */
 
+#ch-5 h3 {
+	padding: 25px;
+	text-align: center;
+}
+
 #references-container {
-	
+	background-color: white;
+	border-radius: 20px;
+	box-shadow: 8px -2px 5px rgba(0,0,0,.2);
+	width: 60%;
+	margin: 0 auto;
+	height: 90vh;
+}
+
+#references-container h4 {
+	padding: 20px;
+	text-align: center;
+}
+
+#references-container ul {
+	margin-top: 16px;
+	margin-left: 12.5%;
 }
 
 
