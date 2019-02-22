@@ -49,23 +49,33 @@ let ch3 = new ImageDialogChapter("Introduction", "assets/floor_room.jpg",
 		let wordIndex = 0;
 		let goalWord = dialog[0];
 
-		return function() {
-			if (writing)
+
+		function mfn() {
+			let timeOut = 160;
+			if (writing) {
 				actualTxt = nextWrite(actualTxt, goalWord);
-			else
+			}
+			else {
 				actualTxt = nextErase(actualTxt);
+			}
 
 			if (writing && actualTxt==goalWord) {
 				writing = false;
 				goalWord = dialog[++wordIndex];
 				
 				if (wordIndex == dialog.length-1) wordIndex = -1;
+
+				timeOut = 4000;
 			}
 			if (!writing && actualTxt=="")
 				writing = true;
 
 			el.innerHTML = actualTxt;
+
+			setTimeout(mfn, timeOut);
 		};
+
+		return mfn;
 	}
 
 
@@ -89,7 +99,7 @@ let ch3 = new ImageDialogChapter("Introduction", "assets/floor_room.jpg",
 		setInterval(() => {
 			if (Math.abs(dialEl.getBoundingClientRect().y) < window.innerHeight) {
 				if (!began) {
-					setInterval(machine(newP,dialogTxts,0), 160);
+					setTimeout(machine(newP,dialogTxts,0), 160);
 					began = true;
 				}
 			}
