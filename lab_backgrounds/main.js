@@ -84,7 +84,7 @@ let ch3 = new ImageDialogChapter("Introduction", "assets/floor_room.jpg",
 
 	for (let dialEl of dialogEls) {
 		let dialogTxts = Array.from(dialEl.childNodes)
-							.filter(nEl => nEl.nodeName=="P")
+							.filter(nEl => nEl.nodeName=='P')
 							.map(pEl => {
 								return pEl.innerText;
 							});
