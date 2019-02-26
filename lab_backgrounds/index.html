@@ -101,6 +101,16 @@
 						
 					</div>
 
+					<div class="proj-content" id="pc-4">
+						<h2 class="proj-sub-title">Paso 2: Empezar Proyecto</h2>
+						<p class="proj-sub-description">En Java es necesario poner nuestros recursos externos, como imagenes, adentro de carpetas fuentes del proyecto. Por lo que vamos a crear una carpeta nueva dandole click izquierdo al nombre del proyecto en Eclipse y seleccionamos la opción: New>Folder y la nombramos 'res'. </p>
+						<p>Después damos nuevamente click izquierdo en el proyecto seguido de Build Path>Configure Build Path. En la pestaña de 'Libraries' le damos click al botón 'Add Class Folder' y seleccionamos la carpeta res en nuestro proyecto.</p>
+						<p>Una vez hecho lo anterior, descarga la imagen del fondo del link en la siguiente viñeta "References and Resources". Puedes arrastrar el archivo descargado al programa de Eclipse y después a la carpeta res. O puedes copiar/cortar y pegarlo usando el explorador de archivos, etc. Nada más asegurate de refrescar tu proyecto cada vez que le agregues archivos sin ponerlos directamente con Eclipse. Para esto dale click izquiero al nombre del proyecto y selecciona 'Refresh'.</p>
+						<p>Si todo esta hecho correctamente, deberá mostrarse en tu carpeta res en Eclipse el archivo "sback.png".</p>
+						
+						
+					</div>
+
 					<div class="proj-content" id="pc-5">
 						<h2 class="proj-sub-title">Scrolling Backgrounds</h2>
 						<p class="proj-sub-description">Hacer un 'scrolling background' es dar la ilusión visual al jugador de un fondo en el videojuego que va avanzando. Este es un efecto muy poderoso en videojuegos ya que crea una sensación de movimiento espacial adentro del juego.</p>
@@ -189,7 +199,7 @@
 						
 						<p>Camera Scrolling es la contraparte de Fake Scrolling por lo que las ventajas de esta técnica cubren las desventajas de la anterior. Si se tiene un mundo o mapa extenso, con elementos en varios puntos del juego, se pueder renderizar todo el juego sin tomar en cuenta las ubicaciones de los elementos, ya que eventualmente la camara se moverá para renderizarlos en la pantalla. Por este motivo, esta técnica es la preferida cuando se hacen juegos de exploración o aventura o cualquier juego grande en 2D.</p>
 						<br>
-						<p>Desafortunadamente, hay un costo en rendimiento ya que se renderiza en cada momento TODO el juego completo y todos sus fondos. Esto puede hacer que tome un tiempo significativo si la cantidad de elementos es muy alta o el mapa y su fondo es muy grande. Se suele modificar para que solo se renderize aquello que esta dentro de los límites de la cámara, pero es implica una transformación grande a la estructura del proyecto, ya que se necesita implementar un Renderizador que sea selectivo y también una manera de búsqueda para retribuir en un tiempo eficiente los elementos del juego adentro de la vista de la cámara.</p>
+						<p>Desafortunadamente, hay un costo en rendimiento ya que se renderiza en cada momento TODO el juego completo y todos sus fondos. Esto puede hacer que tome un tiempo significativo si la cantidad de elementos es muy alta o el mapa y su fondo es muy grande. Se suele modificar para que solo se renderize aquello que esta dentro de los límites de la cámara, pero es implica una transformación grande a la estructura del proyecto, ya que se necesita implementar un Renderizador que sea selectivo y también una manera de búsqueda para retribuir en un tiempo eficiente los elementos del juego adentro de la vista de la cámara. Notesé también que es posible pasar más allá del último fondo y apartir se renderiza el fondo negro. Es por lo tanto necesario implementar una restricción de movimiento a la cámara para que no se salga de los límites del mapa.</p>
 						
 					</div>
 				</div>
@@ -205,7 +215,8 @@
 			<div id="references-container">
 				<h4>Links</h4>
 				<ul>
-					<li><a target="_blank" href="https://www.google.com/">https://www.google.com/</a></li>
+					<li>Repositorio de Código de los Laboratorio: <a target="_blank" href="https://github.com/JJOL/BlueLabs_Code">https://github.com/JJOL/BlueLabs_Code</a></li>
+					<li>Fondo para el Laboratorio: <a download="sback.png" href="assets/sback.png" target="_blank">sback.png</a></li>
 				</ul>
 			</div>
 		</div>
@@ -230,6 +241,5 @@
 
 	<script type="text/javascript" src="main.js"></script>
 	<script type="text/javascript" src="lab.js"></script>
-
 </body>
 </html>
