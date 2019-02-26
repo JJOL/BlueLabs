@@ -101,7 +101,7 @@
 						
 					</div>
 
-					<div class="proj-content" id="pc-4">
+					<div class="proj-content" id="pc-5">
 						<h2 class="proj-sub-title">Paso 2: Empezar Proyecto</h2>
 						<p class="proj-sub-description">En Java es necesario poner nuestros recursos externos, como imagenes, adentro de carpetas fuentes del proyecto. Por lo que vamos a crear una carpeta nueva dandole click izquierdo al nombre del proyecto en Eclipse y seleccionamos la opción: New>Folder y la nombramos 'res'. </p>
 						<p>Después damos nuevamente click izquierdo en el proyecto seguido de Build Path>Configure Build Path. En la pestaña de 'Libraries' le damos click al botón 'Add Class Folder' y seleccionamos la carpeta res en nuestro proyecto.</p>
@@ -111,7 +111,7 @@
 						
 					</div>
 
-					<div class="proj-content" id="pc-5">
+					<div class="proj-content" id="pc-6">
 						<h2 class="proj-sub-title">Scrolling Backgrounds</h2>
 						<p class="proj-sub-description">Hacer un 'scrolling background' es dar la ilusión visual al jugador de un fondo en el videojuego que va avanzando. Este es un efecto muy poderoso en videojuegos ya que crea una sensación de movimiento espacial adentro del juego.</p>
 						<p>IMPORTANCIA: Si en un juego con un mundo virtual relativamente grande, (mayor a la pantalla), no se presenta este efecto, puede ocasionar que el jugador se pierda fácilmente ya que no tendrá un punto de referencia para ubicarse. También puede usarse para indicar progreso a través de los niveles dejando claro al jugador que esta haciendo lo correcto.</p>
@@ -122,13 +122,13 @@
 						
 					</div>
 
-					<div class="proj-content" id="pc-6">
+					<div class="proj-content" id="pc-7">
 						<h2 class="proj-sub-title">Fake Scrolling</h2>
 						<p class="proj-sub-description">Como se muestra en la imagen, en esta técnica se dibuja 2 veces el fondo en diferentes posiciones. Llamemos a estas posiciones <em>back1_x</em> y <em>back2_x</em>. La idea es que la segunda imagen siempre esté por detrás de la primera, y de la misma forma, la primera esté por detrás de la segunda, mientras ambas avanzan con la misma velocidad. Esto crea un bucle infinito del fondo ya que cuando termina una imagen, la otra le sigue inmediatamente dando la ilusión que es el mismo fondo.</p>
 						<img src="assets/fake_scroll_mechanic.jpg" width="400">
 						
 					</div>
-					<div class="proj-content" id="pc-7">
+					<div class="proj-content" id="pc-8">
 						<h2 class="proj-sub-title">Fake Scrolling - Implementación</h2>
 						<p class="proj-sub-description">Para implementarlo usaremos las variables de la clase FakeScrollingLevel. Primero en el <em>constructor</em> tenemos que cargar nuestra imagen usando el metodo <em>read()</em> de ImageIO de la siguiente manera:</p>
 						<code style="background-color: white; color: blue">
@@ -142,7 +142,7 @@
 						<p>Después inicializamos nuestras variables b1_xOff=0 y b2_xOff=b1_xOff+img.getWidth(). Esto es para que el comienzo del segundo fondo este inmediatamente después del final del primero.</p>
 						
 					</div>
-					<div class="proj-content" id="pc-8">
+					<div class="proj-content" id="pc-9">
 						<h2 class="proj-sub-title">Fake Scrolling - Implementación</h2>
 						<p>En <em>render(Graphics2D g)</em> sólo necesitamos dibujar 2 veces nuestro fondo usando el método <em>drawImage(img, x, y, null)</em> de Graphics. Aquí primero llamamos drawImage() con nuestra variable b1_xOff para x, y después llamamos de nuevo drawImage() pero con la variable b2_xOff en vez.</p>
 						<br>
@@ -152,7 +152,7 @@
 						<p>Ya con eso solo nos queda probar dandole click en 'Run'!</p>
 						
 					</div>
-					<div class="proj-content" id="pc-9">
+					<div class="proj-content" id="pc-10">
 						<h2 class="proj-sub-title">Fake Scrolling - Usos</h2>
 						
 						<p>Esta es una buena técnica para usar en juegos en donde los niveles son auto generados dinámicamente. Esto quiere decir que los elementos del juego como obstaculo o enemigos van 'apareciendo' a través del tiempo conforme el jugador juega. En este tipo de juegos los elementos generalmente no estan relacionados directamente con el fondo y su posición actual por lo que esta sencilla técnica, o alguna adaptación de ella, puede usarse sin problema. Además, es muy eficiente en cuanto a rendimiento ya que sólo tiene que siempre 2 copias del fondo.</p>
@@ -161,14 +161,14 @@
 						
 					</div>
 
-					<div class="proj-content" id="pc-10">
+					<div class="proj-content" id="pc-11">
 						<h2 class="proj-sub-title">Camera Scrolling</h2>
 						<p class="proj-sub-description">Esta técnica consiste en dibujar todo el mundo completo tal como está y en donde está, y dejar más bien que la 'cámara' de la aplicación se mueva. De esta manera podemos por ejemplo dibujar multiples fondos fijos, uno después del otro, siempre en un mismo lugar.</p>
 						<p>En el juego primero se va a observar el primer fondo y conforme la camara vaya moviendo, se irán mostrando los siguientes o previos fondos.</p>
 						<img src="assets/camera_scroll_overview.png" width="400">
 						
 					</div>
-					<div class="proj-content" id="pc-11">
+					<div class="proj-content" id="pc-12">
 						<h2 class="proj-sub-title">Camera Scrolling - Implementación</h2>
 						<p class="proj-sub-description">Para implementarlo usaremos las variables de la clase CameraScrollingLevel. Primero en el <em>constructor</em> tenemos que cargar nuevamente nuestra imagen usando el metodo <em>read()</em> de ImageIO de la siguiente manera:</p>
 						<code style="background-color: white; color: blue">
@@ -182,7 +182,7 @@
 						<p>Después inicializamos nuestra variable de posición camX = 0. Y definimos la cantidad fondos que queremos repetir en nuestro mundo, por ejemplo nBacks = 8.</p>
 						
 					</div>
-					<div class="proj-content" id="pc-12">
+					<div class="proj-content" id="pc-13">
 						<h2 class="proj-sub-title">Camera Scrolling - Implementación</h2>
 						<p>En <em>render(Graphics2D g)</em> ahora dibujaremos nuestra imagen dentro de un for i=0 a nBacks, y en cada iteración ejecutamos <em>g.drawImage(img, i*img.getWidth(), 0, null);</em> para se dibujen los 8 fondos cada uno después del previo.
 						</p>
@@ -194,7 +194,7 @@
 						<p>Ya con eso solo nos queda probar cambiando en GamePanel el tipo de LevelController creado de FakeScrollLevel a CameraScrollLevel y dandole click en 'Run'!</p>
 						
 					</div>
-					<div class="proj-content" id="pc-13">
+					<div class="proj-content" id="pc-14">
 						<h2 class="proj-sub-title">Camera Scrolling - Usos</h2>
 						
 						<p>Camera Scrolling es la contraparte de Fake Scrolling por lo que las ventajas de esta técnica cubren las desventajas de la anterior. Si se tiene un mundo o mapa extenso, con elementos en varios puntos del juego, se pueder renderizar todo el juego sin tomar en cuenta las ubicaciones de los elementos, ya que eventualmente la camara se moverá para renderizarlos en la pantalla. Por este motivo, esta técnica es la preferida cuando se hacen juegos de exploración o aventura o cualquier juego grande en 2D.</p>
