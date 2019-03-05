@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="lstyle.css">
+	<title>BlueLabs - Sprites</title>
+</head>
+<body>
+
+	<main>
+		<div class="chapter" id="ch-0">
+			<div class="cover-menu">
+				<ol>
+					<li><a href="#ch-1">Blue-Labs Inc.</a></li>
+					<li><a href="#ch-2">Greetings</a></li>
+					<li><a href="#ch-3">Task Introduction</a></li>
+					<li><a href="#ch-4">Task Description</a></li>
+					<li><a href="#ch-5">References & Resources</a></li>
+					<li><a href="#ch-6">Good Luck</a></li>
+				</ol>
+			</div>
+			<div class="cover-title"><h1>Sprites</h1></div>
+		</div>
+
+		<div class="chapter" id="ch-1">
+			<div class="ch-img ch-img-full">
+				<div class="ch-caption">Blue-Labs Inc.</div>
+			</div>
+		</div>
+
+		<div class="chapter" id="ch-2">
+			<div class="ch-img ch-img-small">
+				<div class="ch-caption">Greetings.</div>
+				<div id="ch-3-secretary"></div>
+			</div>
+			<div class="ch-dialog">
+				<p>¡Bienvenido de vuelta! Veo que sobreviviste a la primera tarea. ¿Cómo te fue? El jefe a veces se emociona un poco con sus proyectos, ¿no crees?</p>
+				<p>Esperemos que esta vez no le eche mucha crema a los tacos.</p>
+				<p>Oh mira, hablando de trabajo...</p>
+			</div>
+		</div>
+
+		<div class="chapter" id="ch-3">
+			<div class="ch-img ch-img-small">
+				<div class="ch-caption">Task Introduction.</div>
+				<div id="ch-3-secretary"></div>
+				<div id="ch-3-boss"></div>
+			</div>
+			<div class="ch-dialog">
+				<p>¡Raúl! ¿Qué es lo que tanto alegas acerca de crema y tacos? [Emm... nada señor... ¡Que su orden de tacos para desayunar ya esta lista!] Ah! Excelente! Con mucha crema justo como a mí me gustan.</p>
+				<p>Novato! Magníficas noticias! Les encanto el prototipo  de fondos que desarrollaste. Pero ahora quieren que este un poco más interesante. Y dentro de su concepto de interesante estan los dibujos animados o como mejor los conocemos en la industria: "Sprites". Así que tu proxima tarea es incorporar Sprites al proyecto en desarrollo y hacerlo más "interesante".  </p>
+				<p>Nuevamente no te preocupes por los detalles arquitectónicos. Somos una empresa con numerosos años de experencia por lo que recibiras soporte guiado así como diseños de clases sólidos.</p>
+			</div>
+		</div>
+
+		<div class="chapter" id="ch-4">
+			<h3>Task Information</h3>
+			<div class="project-description">
+				<h1 class="proj-name">A2-Sprites</h1>
+				<div class="proj-contents-holder">
+					<div class="proj-content" id="pc-1">
+						<h2 class="proj-sub-title">Descripción</h2>
+						<p class="proj-sub-description">'A2-Sprites' es la segunda iteración del prototipo previamente desarrollado. Debe demostrar la implementación de un sistema de manejo de Sprites aplicandolo en al menos un Sprite. De ser posible también se busca que cuente con elementos de jugabilidad como un personaje controlable y enemigos u objetivos.
+						</p>
+						<br>
+						<p>Se espera la entrega para el día: Viernes 8 de Marzo del 2019</p>
+						<img class="proj-front-img" id="proj-1-final" src="assets/project_cover.png" width="230">
+					</div>
+					<div class="proj-content" id="pc-2">
+						<h2 class="proj-sub-title">Estructura</h2>
+						<div style="width: 49%; display: inline-block;">
+							<h3><em>Estructura de Partida</em></h3>
+							<p class="proj-sub-description">La estructura de donde partimos el proyecto es el esqueleto del juego desarrollado en la entrega pasada. Notese que el UML pueda diferir con el código mismo, sin embargo sigue siendo una buena herramienta para explicar los cambios al proyecto.</p>
+
+							<img src="assets/proj_old_structure.png" width="80%">
+						</div>
+						<div style="width: 49%; display: inline-block;">
+							<h3><em>Estructura Nuevo</em></h3>
+							<p class="proj-sub-description">Agregaremos un módulo de Sprites formado por un par de subclases. Esto hará posible la inclusión de Sprites de diferentes fuentes y formas.</p>
+
+							<img src="assets/proj_structure.png" width="100%">
+						</div>
+					</div>
+					<div class="proj-content" id="pc-3">
+						<h2 class="proj-sub-title">Sprites</h2>
+						<p class="proj-sub-description">Como ya sabras, la mágia detras de las animaciones es una colección de imagenes cuidadosamente dibujadas de tal modo que cuando las muestras secuencialmente una después de otra, dan la aparición de movimiento o cambio.</p>
+						<br>
+						<img src="assets/detail_uml.jpg" width="300" height="200">
+					</div>
+					<div class="proj-content" id="pc-4">
+						<h2 class="proj-sub-title">Sprites</h2>
+						<p class="proj-sub-description">Para lograr este efecto basta con tener una arreglo de imagenes, por ejemplo BufferedImage's cargados tal como lo hicimos con el fondo, y renderizar un elemento del arreglo a la vez. Para ajustar la velocidad de animación, podemos tener un contador/índice de la subimagen de la animación y hacer que solo incremente cada 5 ejeciciones de <em>render(g)</em> por ejemplo.</p>
+						
+						<br>
+					</div>
+					<div class="proj-content" id="pc-5">
+						<h2 class="proj-sub-title">Sprites</h2>
+						<p class="proj-sub-description">Sin embargo, muchos de los retos al implementar Sprites son respecto a la flexibilidad de las animaciones, rendimiento y reutilización de los Sprites y cargado de SpriteSheets. Los SpriteSheets son imagenes en donde se especifican todas las subimagenes de una animación para evitar cargar múltiples archivos por cada animación.</p>
+						<br>
+					</div>
+					<div class="proj-content" id="pc-6">
+						<h2 class="proj-sub-title">CachedSprite</h2>
+						<p class="proj-sub-description">Empezemos entonces con nuestra primera clase encargada de alamcenar las subimagenes de un sprite.</p>
+						<p>Esta clase no tiene mucho más que la simple asignación del ArrayList en el método constructor y un método de acceso <em>getSubImg(int i)</em> a la subimagen en el ArrayList usando <em>images.get(i)</em></p>
+						<br>
+					</div>
+
+					<div class="proj-content" id="pc-7">
+						<h2 class="proj-sub-title">AnimationSprite</h2>
+						<p class="proj-sub-description">Esta clase es más práctica, ya que representa un Sprite animado que podemos utilizar como componente en cualquier clase de nuestro videojuego. Como en un enemigo.</p>
+						<p></p>
+						<br>
+						<br>
+						<p>Veremos 2 maneras de implementar este efecto. La primera, probablemente familiar, consiste en simularlo dibujando 2 veces el fondo para crear un bucle. La segunda, dibujamos un mundo mucho más amplio que la pantalla, y hacemos que la 'cámara' de la pantalla se vaya moviendo en nuestro mundo.</p>
+						<p>Ambas técnicas tienen ventajas y deventajas que se verán a continuación.</p>
+						
+					</div>
+
+					<div class="proj-content" id="pc-8">
+						<h2 class="proj-sub-title">SpriteBuilder</h2>
+						<p class="proj-sub-description">En Java es necesario poner nuestros recursos externos, como imagenes, adentro de carpetas fuentes del proyecto. Por lo que vamos a crear una carpeta nueva dandole click izquierdo al nombre del proyecto en Eclipse y seleccionamos la opción: New>Folder y la nombramos 'res'. </p>
+						<p>Después damos nuevamente click izquierdo en el proyecto seguido de Build Path>Configure Build Path. En la pestaña de 'Libraries' le damos click al botón 'Add Class Folder' y seleccionamos la carpeta res en nuestro proyecto.</p>
+						<p>Una vez hecho lo anterior, descarga la imagen del fondo del link en la siguiente viñeta "References and Resources". Puedes arrastrar el archivo descargado al programa de Eclipse y después a la carpeta res. O puedes copiar/cortar y pegarlo usando el explorador de archivos, etc. Nada más asegurate de refrescar tu proyecto cada vez que le agregues archivos sin ponerlos directamente con Eclipse. Para esto dale click izquiero al nombre del proyecto y selecciona 'Refresh'.</p>
+						<p>Si todo esta hecho correctamente, deberá mostrarse en tu carpeta res en Eclipse el archivo "sback.png".</p>
+						
+						
+					</div>
+
+					
+
+					<div class="proj-content" id="pc-9">
+						<h2 class="proj-sub-title">Demostración</h2>
+						<p class="proj-sub-description">Como se muestra en la imagen, en esta técnica se dibuja 2 veces el fondo en diferentes posiciones. Llamemos a estas posiciones <em>back1_x</em> y <em>back2_x</em>. La idea es que la segunda imagen siempre esté por detrás de la primera, y de la misma forma, la primera esté por detrás de la segunda, mientras ambas avanzan con la misma velocidad. Esto crea un bucle infinito del fondo ya que cuando termina una imagen, la otra le sigue inmediatamente dando la ilusión que es el mismo fondo.</p>
+						<img src="assets/fake_scroll_mechanic.jpg" width="400">						
+					</div>
+				</div>
+				<div class="proj-buttons">
+					<div><button class="btn back">Back</button></div>
+					<div><button class="btn next">Next</button></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="chapter" id="ch-5">
+			<h3>References and Resources</h3>
+			<div id="references-container">
+				<h4>Links</h4>
+				<ul>
+					<li>Sprite de Murcielago: <a download="bat-1.2.zip" href="assets/bat-1.2.zip" target="_blank">bat-1.2.zip</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="chapter" id="ch-6">
+			<div class="ch-img ch-img-small">
+				<div class="ch-caption">Good Luck.</div>
+				<div id="ch-3-secretary"></div>
+				<div id="ch-3-boss"></div>
+			</div>
+			<div class="ch-dialog">
+				<p>...Hmmm esta salsa verde sí está bien sabrosa...</p>
+				<p>!Qué!.. ¿Qué haces aquí? !Ponte a trabajar y no me interrumpas sin avisar!</p>
+			</div>
+		</div>
+
+		<footer>
+			Copyright 2019 - Juan José Olivera Loyola & Topiltzin Hernández Mares
+		</footer>
+
+	</main>
+
+	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="lab.js"></script>
+</body>
+</html>
