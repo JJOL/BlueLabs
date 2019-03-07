@@ -1,3 +1,15 @@
+:root {
+	--green: #4D892B;
+	--red: #CF645A;
+	--blue: #4884BF;
+	--purp: #C170AE;
+	--dyell: #B88532;
+	--brown: #BE9162;
+	--white: #F7F7F7;
+	--lgrey: #E7E7E7;
+	--black: #1A1A1A;
+}
+
 body, body * {
 	margin: 0;
 	padding: 0;
@@ -225,7 +237,7 @@ footer {
 	visibility: hidden;
 	width: 100%;
 	top: -10vh;
-	background-color: rgb(252, 247, 229);
+	background-color: rgb(255, 254, 251);
 	transition: .5s ease-out;
 	height: 100%;
 	padding: 15px;
@@ -307,4 +319,61 @@ footer {
 	background-size: contain;
 	width: 300px;
 	height: 300px;	
+}
+
+.proj-content {
+	line-height: 30px;
+	font-size: 1.08rem;
+}
+
+.proj-sub-title {
+	padding: 15px 0;
+}
+
+.list {
+	width: 90%; 
+	padding: 20px
+}
+
+.list li {
+	padding: 5px 0;
+}
+
+.code {
+	background-color: var(--white);
+	padding: 1px 5px;
+	border-radius: 3px;
+	border: 1px solid var(--lgrey);
+	color: var(--black);
+	font-weight:600;
+}
+
+.code-black {
+	color: var(--black);
+	font-weight:600;
+}
+
+.code-class {
+	color: var(--green);
+	font-weight:600;
+}
+
+.code-method {
+	color: var(--red);
+	font-weight:600;
+}
+
+.code-var {
+	color: var(--blue);
+	font-weight:600;
+}
+
+.code-reserved {
+	color: var(--purp);
+	font-weight:600;
+}
+
+.code-dyell {
+	color: var(--dyell);
+	font-weight:600;
 }

@@ -62,7 +62,7 @@
 				<div class="proj-contents-holder">
 					<div class="proj-content" id="pc-1">
 						<h2 class="proj-sub-title">Descripcion</h2>
-						<p class="proj-sub-description">'A1-Background' es un prototipo para probar ante el cliente diferentes técnicas para implementar 'background-scrolling' en un videojuego desarrollado en el lenguaje Java con un conecpto prototipo del jugador y una cantidad mínima de enemigos.</p><br>
+						<p class="proj-sub-description">'A1-Background' es un prototipo para probar ante el cliente diferentes técnicas para implementar <span class="code code-reserved">background-scrolling</span> en un videojuego desarrollado en el lenguaje Java con un conecpto prototipo del jugador y una cantidad mínima de enemigos.</p><br>
 						<p>Se espera la entrega para el día: Miércoles 27 de Febrero del 2019</p>
 						<img class="proj-front-img" id="proj-1-final" src="assets/project_cover.png" width="230">
 					</div>
@@ -76,26 +76,26 @@
 						</div>
 						<div style="width: 49%; display: inline-block;">
 							<h3><em>Estructura Nuevo</em></h3>
-							<p class="proj-sub-description">Remplazaremos el módulo ManyBalls por un diseño arquitectónico ya desarrollado aquí en BlueLabs</p>
+							<p class="proj-sub-description">Remplazaremos el módulo <span class="code code-class">ManyBalls</span> por un diseño arquitectónico ya desarrollado aquí en BlueLabs</p>
 
 							<img src="assets/proj_structure.png" width="100%">
 						</div>
 					</div>
 					<div class="proj-content" id="pc-3">
 						<h2 class="proj-sub-title">LevelController</h2>
-						<p class="proj-sub-description">La clase LevelController nos va a servir para agrupar 2 implementaciones diferentes de nuestro 'Background Scrolling' bajo un mismo concepto. De esta manera podemos declarar una variable de tipo LevelController en GamePanel para guardar la instancia de cualquiera de las 2 subclases, y así, hacer pruebas.</p>
+						<p class="proj-sub-description">La clase <span class="code-class code">LevelController</span> nos va a servir para agrupar 2 implementaciones diferentes de nuestro <span class="code code-reserved">background-scrolling</span> bajo un mismo concepto. De esta manera podemos declarar una variable de tipo <span class="code code-class">LevelController</span> en <span class="code code-class">GamePanel</span> para guardar la instancia de cualquiera de las 2 subclases, y así, hacer pruebas.</p>
 						<br>
 						<img src="assets/detail_uml.jpg" width="300" height="200">
 					</div>
 					<div class="proj-content" id="pc-4">
 						<h2 class="proj-sub-title">Paso 1: Empezar Proyecto</h2>
-						<p class="proj-sub-description">Prepara un proyecto con la estructura mencionada anteriormente. Para esto puedes hacer una copia de las clases pasadas como GamePanel y hacer las siguientes modificaciones:</p>
+						<p class="proj-sub-description">Prepara un proyecto con la estructura mencionada anteriormente. Para esto puedes hacer una copia de las clases pasadas como <span class="code code-class">GamePanel</span> y hacer las siguientes modificaciones:</p>
 						<br>
-						<ol style="width: 80%; padding-left: 20px">
-							<li>Remueve las clases ManyBalls y Ball.</li>
-							<li>En GamePanel remueve las variable tipo ManyBalls y todo lo relacionado a ella.</li>
-							<li>Crea una clase llamada LevelController con un método público void update() y un método público void render(Graphics2D g).</li>
-							<li>Crea las 2 clases FakeScrollLevel y CameraScrollLevel que hereden de LevelController con las variables que se muestra en el UML y el los constructores llamando a super().</li>
+						<ol class="list">
+							<li>Remueve las clases <span class="code code-class">ManyBalls</span> y <span class="code code-class">Ball</span>.</li>
+							<li>En <span class="code code-class">GamePanel</span> remueve las variable tipo <span class="code code-class">ManyBalls</span> y todo lo relacionado a ella.</li>
+							<li>Crea una clase llamada <span class="code code-class">LevelController</span> con un método público <span class="code"><span class="code-reserved">void </span><span class="code-method">update</span>()</span></span> y un método público <span class="code"><span class="code-reserved">void </span><span class="code-method">render</span>(<span class="code-class">Graphics2D</span> <span class="code-var">g</span>)</span>.</li>
+							<li>Crea las 2 clases <span class="code code-class">FakeScrollLevel</span> y <span class="code code-class">CameraScrollLevel</span> que hereden de <span class="code code-class">LevelController</span> con las variables que se muestra en el UML y el constructor llamando a <span class="code"><span class="code-method">super</span>()</span>.</li>
 							<li>En GamePanel crea una variable privada tipo LevelController llamado <em>level</em>. En el constructor de GamePanel asigna a level una nueva instancia de la clase FakeScrollLevel() pasando PWIDTH y PHEIGHT como parametros al constructor de FakeScrollLevel. En gameRender() ejecuta <em>level.render((Graphics2D)dbg)</em> después del pintado del fondo. En gameUpdate() ejecuta <em>level.update()</em>.</li>
 						</ol>
 						
