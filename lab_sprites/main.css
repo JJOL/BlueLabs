@@ -36,7 +36,7 @@ footer {
 	width: 100%;
 
 
-	background-color: #ec407a;
+	background-color: #639ed8;
 	border-bottom: 2px dashed black;
 }
 
@@ -190,7 +190,7 @@ footer {
 .btn {
 	padding: 10px 30px;
 	cursor: pointer;
-	background-color: rgb(95, 194, 255);
+	background-color: black;
 	border: 0;
 	border-radius: 5px;
 	color: white;
