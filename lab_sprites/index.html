@@ -62,10 +62,10 @@
 				<div class="proj-contents-holder">
 					<div class="proj-content" id="pc-1">
 						<h2 class="proj-sub-title">Descripción</h2>
-						<p class="proj-sub-description">'A2-Sprites' es la segunda iteración del prototipo previamente desarrollado. Debe demostrar la implementación de un sistema de manejo de Sprites aplicandolo en al menos un Sprite. De ser posible también se busca que cuente con elementos de jugabilidad como un personaje controlable y enemigos u objetivos.
+						<p class="proj-sub-description">'A2-Sprites' es la segunda iteración del prototipo previamente desarrollado. Debe demostrar la implementación de un sistema de manejo de Sprites aplicandose en al menos un Sprite. De ser posible también se busca que cuente con elementos de jugabilidad como un personaje controlable y enemigos u objetivos.
 						</p>
 						<br>
-						<p>Se espera la entrega para el día: Viernes 8 de Marzo del 2019</p>
+						<p>Se espera la entrega para el día: Viernes 12 de Marzo del 2019</p>
 						<img class="proj-front-img" id="proj-1-final" src="assets/project_cover.png" width="230">
 					</div>
 					<div class="proj-content" id="pc-2">
@@ -74,56 +74,77 @@
 							<h3><em>Estructura de Partida</em></h3>
 							<p class="proj-sub-description">La estructura de donde partimos el proyecto es el esqueleto del juego desarrollado en la entrega pasada. Notese que el UML pueda diferir con el código mismo, sin embargo sigue siendo una buena herramienta para explicar los cambios al proyecto.</p>
 
-							<img src="assets/proj_old_structure.png" width="80%">
+							<img src="assets/proj_old_structure.png" height="220px">
 						</div>
 						<div style="width: 49%; display: inline-block;">
 							<h3><em>Estructura Nuevo</em></h3>
 							<p class="proj-sub-description">Agregaremos un módulo de Sprites formado por un par de subclases. Esto hará posible la inclusión de Sprites de diferentes fuentes y formas.</p>
 
-							<img src="assets/proj_structure.png" width="100%">
+							<img src="assets/proj_structure.png" height="220px">
 						</div>
 					</div>
 					<div class="proj-content" id="pc-3">
 						<h2 class="proj-sub-title">Sprites</h2>
-						<p class="proj-sub-description">Como ya sabras, la mágia detras de las animaciones es una colección de imagenes cuidadosamente dibujadas de tal modo que cuando las muestras secuencialmente una después de otra, dan la aparición de movimiento o cambio.</p>
+						<p class="proj-sub-description">Como ya sabrás, la mágia detrás de las animaciones es una colección de imagenes cuidadosamente dibujadas de tal modo que cuando las muestras secuencialmente una después de otra, dan la aparición de movimiento o cambio.</p>
 						<br>
-						<img src="assets/detail_uml.jpg" width="300" height="200">
+						<img src="assets/mario_sprite.jpeg" width="600" height="200">
 					</div>
 					<div class="proj-content" id="pc-4">
 						<h2 class="proj-sub-title">Sprites</h2>
-						<p class="proj-sub-description">Para lograr este efecto basta con tener una arreglo de imagenes, por ejemplo BufferedImage's cargados tal como lo hicimos con el fondo, y renderizar un elemento del arreglo a la vez. Para ajustar la velocidad de animación, podemos tener un contador/índice de la subimagen de la animación y hacer que solo incremente cada 5 ejeciciones de <em>render(g)</em> por ejemplo.</p>
-						
+						<p class="proj-sub-description">Para lograr este efecto basta con tener una arreglo de imagenes, por ejemplo de BufferedImage's cargados tal como lo hicimos con el fondo, y renderizar un elemento del arreglo a la vez. Para ajustar la velocidad de animación, podemos tener un contador/índice de la subimagen de la animación y hacer que solo incremente cada 5 actualizaciones/renders.</p>
+						<br>
+						<p class="proj-sub-description">Sin embargo, muchos de los verdaderos retos en esta área son respecto a la flexibilidad de las animaciones, rendimiento, reutilización de los Sprites y cargado de los famosos "SpriteSheets". Los SpriteSheets son imagenes en donde se guardan todas las subimagenes de una animación, o conjunto de animaciones, en una forma ordenada para evitar cargar múltiples archivos. Esta característica los hace ideales para ahorrar espacio físico y por lo tanto son muy populares.</p>
 						<br>
 					</div>
 					<div class="proj-content" id="pc-5">
 						<h2 class="proj-sub-title">Sprites</h2>
-						<p class="proj-sub-description">Sin embargo, muchos de los retos al implementar Sprites son respecto a la flexibilidad de las animaciones, rendimiento y reutilización de los Sprites y cargado de SpriteSheets. Los SpriteSheets son imagenes en donde se especifican todas las subimagenes de una animación para evitar cargar múltiples archivos por cada animación.</p>
+						<p>Tomando en cuenta lo previamente mencionado, se  implementará una estructura/sistema, que ha sido desarrollado y documentado previamente en TecLabs, que facilitará la solución de los problemas.</p>
+						<br>
+						<p>Esta estructura es flexible y puede adaptarse para acomodar diversas situaciones, pero no es la única que existe. Es una cuestión de diseñar con ingenio lo que uno necesite para su proyecto de software.</p>
+						<br>
+						<img src="assets/detail_uml.jpg" width="600" height="200">
 						<br>
 					</div>
 					<div class="proj-content" id="pc-6">
 						<h2 class="proj-sub-title">CachedSprite</h2>
 						<p class="proj-sub-description">Empezemos entonces con nuestra primera clase encargada de alamcenar las subimagenes de un sprite.</p>
 						<p>Esta clase no tiene mucho más que la simple asignación del ArrayList en el método constructor y un método de acceso <em>getSubImg(int i)</em> a la subimagen en el ArrayList usando <em>images.get(i)</em></p>
+						<ul style="padding-left: 30px">
+							<li>En el constructor recibimos la lista de subimagenes <em>List&lt;BufferedImage&gt; images</em> y se lo asignamos a nuestra variable privada.</li>
+							<li>Similarmente en <em>size()</em> regresamos el propio tamaño de la lista.</li>
+							<li>En el método <em>get(int index)</em> usamos el propio método <em>get()</em> de la lista para obtener la imagen.</li>
+						</ul>
+
+						<br>
+						<h4>¿Por qué el nombre CachedSprite?</h4>
+						<p>Porque esta clase que parece casi vacía guarda esencialmente solo las imagenes de nuestro sprite. Y cada vez que queramos instancia un objeto que ocupe el mismo sprite podemos pasarle nuestro CachedSprite creado.</p>
 						<br>
 					</div>
 
 					<div class="proj-content" id="pc-7">
 						<h2 class="proj-sub-title">AnimationSprite</h2>
-						<p class="proj-sub-description">Esta clase es más práctica, ya que representa un Sprite animado que podemos utilizar como componente en cualquier clase de nuestro videojuego. Como en un enemigo.</p>
-						<p></p>
+						<p class="proj-sub-description">Esta clase es más práctica, ya que representa un Sprite animado que podemos utilizar como componente en cualquier clase de nuestro videojuego. Como en un enemigo por ejemplo.</p>
 						<br>
-						<br>
-						<p>Veremos 2 maneras de implementar este efecto. La primera, probablemente familiar, consiste en simularlo dibujando 2 veces el fondo para crear un bucle. La segunda, dibujamos un mundo mucho más amplio que la pantalla, y hacemos que la 'cámara' de la pantalla se vaya moviendo en nuestro mundo.</p>
-						<p>Ambas técnicas tienen ventajas y deventajas que se verán a continuación.</p>
+						<p>Esta clase es un poco más complicada que las demás. </p>
+						<ul style="padding-left: 30px">
+							<li>Asignar los valores recibidos las variables correspondientes en el constructor(), setX(), setY(), setAnimSpd().</li>
+							<li>En <em>render(g)</em> vamos a dibujar con <em>drawImage(img,x,y,w,h,null)</em> en la posición correspondiente, la subimagen 'imageIndex' del CachedSprite usando su metodo <em>get()</em>.</li>
+							<li>En <em>update()</em> está lo más jugoso. Aquí incrementamos el ínidice del sprite dada la velocidad de animación puesta. Por el momento no sabemos cuantas veces se ejecuta el update() por segundo 'UPS' pero vá entre unas 30 veces por segundo y en juegos más estables siempre está alrededor de 60. Si nuestro juego tiene 60ups y queremos 5 imagenes por segundo de un sprite, tendríamos que contar 12 updates (60/5=12) para incrementar nuestra imageIndex. Por lo que pondremos en update() un contador 'animCount', y un if para checar que un cuando llegue al 'topCount', reiniciamos el contador e incrementamos 'imageIndex'. (También hay que checar que imageIndex no se salga de la cantidad posible de imagenes. Por eso es necesario el método .size() de CachedSprite).</li>
+							<li>No hay que olvidarnos de darle un valor a 'topCount'. Ya que esto pasa cuando asignamos una velocidad podemos ponerlo en <em>setAnimSpd(int spd)</em>, y lo calculamos como topCount = ups/spd; En donde ahorita ups es un valor al tanteo, como 60 por ejemplo.</li>
+						</ul>
+						
 						
 					</div>
 
 					<div class="proj-content" id="pc-8">
 						<h2 class="proj-sub-title">SpriteBuilder</h2>
-						<p class="proj-sub-description">En Java es necesario poner nuestros recursos externos, como imagenes, adentro de carpetas fuentes del proyecto. Por lo que vamos a crear una carpeta nueva dandole click izquierdo al nombre del proyecto en Eclipse y seleccionamos la opción: New>Folder y la nombramos 'res'. </p>
-						<p>Después damos nuevamente click izquierdo en el proyecto seguido de Build Path>Configure Build Path. En la pestaña de 'Libraries' le damos click al botón 'Add Class Folder' y seleccionamos la carpeta res en nuestro proyecto.</p>
-						<p>Una vez hecho lo anterior, descarga la imagen del fondo del link en la siguiente viñeta "References and Resources". Puedes arrastrar el archivo descargado al programa de Eclipse y después a la carpeta res. O puedes copiar/cortar y pegarlo usando el explorador de archivos, etc. Nada más asegurate de refrescar tu proyecto cada vez que le agregues archivos sin ponerlos directamente con Eclipse. Para esto dale click izquiero al nombre del proyecto y selecciona 'Refresh'.</p>
-						<p>Si todo esta hecho correctamente, deberá mostrarse en tu carpeta res en Eclipse el archivo "sback.png".</p>
+						<p class="proj-sub-description">Finalmente, haz una clase SpriteBuilder en la cual usaremos uno nuevo patrón de diseño, el patrón Builder. Este patrón sirve para facilitar la instanciación flexible de objetos con configuraciones. En nuestro caso, esos objetos son CachedSprites que vienen de componer subimagenes cargadas de un SpriteSheet.</p>
+						<br>
+						<ul style="padding-left: 30px">
+							<li>En el método constructor cargamos la imagen del spritesheet como lo hemos hecho anteriormente y asignamos la anchura y altura de las celdas a las variables de nuestra clase.</li>
+							<li>En el método addSubImage(int,int) vamos a agregar una subimagen del SpriteSheet a nuestro objeto CachedSprite que estamos construyendo. Para eso usamos el método .subimage(x,y,w,h) de BufferedImage. Esta función devuelve en forma de BufferedImage la copia de la sección seleccionada como parametro. Esta sección la pudemos agregar a nuestra lista de subimages. Al final este metodo devuelve su propia instance "return this;" y se explicara a continuación el ¿por qué?</li>
+							<li>Por último, en build(), simplemente creamos un nuevo objeto CachedSprite pasandole la lista de imagenes como parámetro y devolvemos el objeto.</li>
+						</ul> 
 						
 						
 					</div>
@@ -132,8 +153,42 @@
 
 					<div class="proj-content" id="pc-9">
 						<h2 class="proj-sub-title">Demostración</h2>
-						<p class="proj-sub-description">Como se muestra en la imagen, en esta técnica se dibuja 2 veces el fondo en diferentes posiciones. Llamemos a estas posiciones <em>back1_x</em> y <em>back2_x</em>. La idea es que la segunda imagen siempre esté por detrás de la primera, y de la misma forma, la primera esté por detrás de la segunda, mientras ambas avanzan con la misma velocidad. Esto crea un bucle infinito del fondo ya que cuando termina una imagen, la otra le sigue inmediatamente dando la ilusión que es el mismo fondo.</p>
-						<img src="assets/fake_scroll_mechanic.jpg" width="400">						
+						<p class="proj-sub-description">Para poner en uso lo que acabamos de programar invoquemos a la vida un pequeño murcielgo. Descarga el sprite que esta en la sección de recursos, descomprimelo y pon la imagen bat-32x32.png en la carpeta de recursos res de eclipse.</p>
+						<br>
+						<p>Seguido de esto, en el LevelController que estes usando, agrega una variable del tipo AnimationSprite sprite. En el constructor declara y crea un nuevo SpriteBuilder pasando como argumento para 'path' un string con la ruta al archivo bat-32x32, y para los argumentos cellW, y cellH pasa el valor 32 ya que sabemos que cada subimagen del SpriteSheet tiene una dimensión 32x32. Si quieres comprobarlo tu mismo, abre el archivo en un visualizador de imagenes o Photoshop.</p>
+						<p>Con nuestro spriteBuilder carguemos la siguiente secuencia de imagenes:</p>
+											
+					</div>
+					<div class="proj-content" id="pc-10">
+						<h2 class="proj-sub-title">Demostración</h2>
+						<p class="proj-sub-description">Usaremos las últimas 3 subimagenes del primer renglón. Si vemos las subimagenes como elementos de una matriz, podemos ver que las coordenadas de ellas son (1,0),(2,0) y (3,0) en la forma (i,j) en donde i es la columna y j el renglón. Por lo que vamos a solicitarle al spriteBuilder estas mismas subimagenes.</p>
+						<img src="assets/bat-32x32.png"><br>
+						<code>
+							<em>SpriteBuilder spriteBuilder;<br>
+							spriteBuilder.addSubImage(1,0)<br>
+										 .addSubImage(2,0)<br>
+										 .addSubimage(3,0);</em>
+						</code>
+						<p>Aquí es donde se vé la razón de que addSubImage() regresara una referencia al mismo objeto. Como regresa la referencia, podemos invocar el método de nuevo justamente después del anterior, haciendo muy cómodo el uso.</p>
+
+						<p>Al final usamos el método .build() para obtener el CachedImage y guardarlo en una variable.</p>
+						<br>
+						
+											
+					</div>
+					<div class="proj-content" id="pc-11">
+						<h2 class="proj-sub-title">Demostración</h2>
+						<p class="proj-sub-description">Por último instancia un objeto del tipo AnimationSprite, (recuerda que no hemos salido del constructor), y pásale el objeto CachedSprite, algunas coordenadas y una anchura y altura como de 100 pixeles.</p>
+						<br>
+						<p>Utiliza el método setAnimSpd(5) para darle moviemiento al sprite.</p>
+						<p>En <em>render(g)</em> invoca el método render del animationSprite y en update() invoca el método update().</p>
+						<br>
+						<p>Corre el juego para ver el resultado.</p>
+						<p>Adicionalmete puedes crear una clase  del murcielago para hacer que se mueva independientemente que cada murcielago tenga una AnimationSprite. El CachedSprite estaría guardado en el LevelController y el mismo objeto se lo pasamos a múltiples murcielagos, haciendo eficiente su reutilización. </p>
+						<p>También se te recomienda investigar más acerca de las AffineTransformation's para darle efectos de transformación, como rotación a las imagenes e incluirlo al AnimationSprite.</p>
+						<br>
+						
+											
 					</div>
 				</div>
 				<div class="proj-buttons">
