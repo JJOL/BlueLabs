@@ -36,9 +36,9 @@
 				<div id="ch-3-secretary"></div>
 			</div>
 			<div class="ch-dialog">
-				<p>Bienvenido a Blue-Labs Inc. Una compañia falsa del Instituto Tecnológico de Estudios Superiores de Monterrey Campus QRO que se dedica a desarrollar proyectos falsos relacionados a software de videojuegos!</p>
-				<p>Tu debes ser el nuevo recluta, no? El te estaba esperando pero ahorita esta ocupado en una reunión con un cliente exigente.</p>
-				<p>Por favor esperalo hasta pasar a la siguiente viñeta.</p>
+				<p>¡Ey! ¡Buenos Dias!</p>
+				<p>Los si que vuelan en esta compañia ¿no? Recien acabas un trabajo y ya hay otro esperandote.</p>
+				<p>¡Anímo que ya caso te ascienden!</p>
 			</div>
 		</div>
 
@@ -49,159 +49,277 @@
 				<div id="ch-3-boss"></div>
 			</div>
 			<div class="ch-dialog">
-				<p>¡Raúl! ¿En dónde esta el nuevo trabajor y próximo Chief Technology Officer? <em>Esta en frente de usted señor...</em> Ah! Magnífico!</p>
-				<p>Que bueno que llegaste. El puesto de CTO va para ser tuyo pero primero tendrás que realizar unos cuantas tareas.</p>
-				<p>Comenzando por este que nos solicito el representante de Freev, una gigante tecnológica desarrolladora de millones de juegos. Desafortunadamente se especializan en desarrollo web por lo que nos estan pidiendo ayuda con la implementación de un sistema de fondos scrolleables para su próximo lanzamiento en computadora.</p>
+				<p>¡Señores y Señoras! Hoy es el día en que asignaré uno de los trabajos más importantes de esta compañia!</p>
+				<p>Hmmm... a ver... ¡TÚ!</p>
+				<p>Tú ya estas muy familiarizado con este cliente así que eres la persona ideal para darle el seguimiento al proyecto.</p>
+				<p>El proyecto es esta vez algo de vanguardia. Buena Suerte.</p>
 			</div>
 		</div>
 
 		<div class="chapter" id="ch-4">
 			<h3>Task Information</h3>
 			<div class="project-description">
-				<h1 class="proj-name">A1-Background</h1>
+				<h1 class="proj-name">A3-Audio</h1>
 				<div class="proj-contents-holder">
 					<div class="proj-content" id="pc-1">
 						<h2 class="proj-sub-title">Descripcion</h2>
-						<p class="proj-sub-description">'A1-Background' es un prototipo para probar ante el cliente diferentes técnicas para implementar <span class="code code-reserved">background-scrolling</span> en un videojuego desarrollado en el lenguaje Java con un conecpto prototipo del jugador y una cantidad mínima de enemigos.</p><br>
-						<p>Se espera la entrega para el día: Miércoles 27 de Febrero del 2019</p>
+						<p class="proj-sub-description">'A3-Audio' es la tercera iteración del juego más vendido por nuestro cliente, y en esta nueva versión se espera la incorporación de sonidos y música.</p><br>
+						<p>Se espera la entrega para el día: Viernes 22 de Marzo del 2019</p>
 						<img class="proj-front-img" id="proj-1-final" src="assets/project_cover.png" width="230">
 					</div>
 					<div class="proj-content" id="pc-2">
-						<h2 class="proj-sub-title">Estructura</h2>
-						<div style="width: 49%; display: inline-block;">
-							<h3><em>Estructura de Partida</em></h3>
-							<p class="proj-sub-description">La estructura de donde partimos el proyecto es el esqueleto del juego desarrollado en las clases previas.</p>
-
-							<img src="assets/project_old_structure.png" width="100%">
-						</div>
-						<div style="width: 49%; display: inline-block;">
-							<h3><em>Estructura Nuevo</em></h3>
-							<p class="proj-sub-description">Remplazaremos el módulo <span class="code code-class">ManyBalls</span> por un diseño arquitectónico ya desarrollado aquí en BlueLabs</p>
-
-							<img src="assets/proj_structure.png" width="100%">
-						</div>
+						<h2 class="proj-sub-title">Audio Digital</h2>
+						<p class="proj-sub-description">Empezemos revisando cómo es que funciona la grabación, representación y reproducción de sonidos en las computadoras.</p>
+						<br>
+						<p>Para esto, revisa el siguiente video: <a href="https://www.youtube.com/watch?v=GjmcXfgKq78&list=PLEETnX-uPtBVpZvp-R2daNfy9k3-L-Q3u&index=4" target="_blank">Understanding Digital Audio</a></p>
+						
 					</div>
 					<div class="proj-content" id="pc-3">
-						<h2 class="proj-sub-title">LevelController</h2>
-						<p class="proj-sub-description">La clase <span class="code-class code">LevelController</span> nos va a servir para agrupar 2 implementaciones diferentes de nuestro <span class="code code-reserved">background-scrolling</span> bajo un mismo concepto. De esta manera podemos declarar una variable de tipo <span class="code code-class">LevelController</span> en <span class="code code-class">GamePanel</span> para guardar la instancia de cualquiera de las 2 subclases, y así, hacer pruebas.</p>
+						<h2 class="proj-sub-title">Audio Digital</h2>
+						<p class="proj-sub-description">Por fortuna Java ya cuenta con una librería que se encarga de hacer todo el manejo de dispositivos y audio, así que no hay de que preocuparse por obtener información de dispositivos de salida ni escribir C++. (Aunque si se desea, también se puede trabajar con los 'DataLines' en Java para obtener efectos especiales.)</p>
 						<br>
-						<img src="assets/detail_uml.jpg" width="300" height="200">
+						<p>Esto nos da la oportunidad de implementar un sistema más ambicioso. Capaz de reproducir múltiples sonidos, música, con controles de volumen y algún control de acción.</p>
+						
 					</div>
 					<div class="proj-content" id="pc-4">
-						<h2 class="proj-sub-title">Paso 1: Empezar Proyecto</h2>
-						<p class="proj-sub-description">Prepara un proyecto con la estructura mencionada anteriormente. Para esto puedes hacer una copia de las clases pasadas como <span class="code code-class">GamePanel</span> y hacer las siguientes modificaciones:</p>
-						<br>
-						<ol class="list">
-							<li>Remueve las clases <span class="code code-class">ManyBalls</span> y <span class="code code-class">Ball</span>.</li>
-							<li>En <span class="code code-class">GamePanel</span> remueve las variable tipo <span class="code code-class">ManyBalls</span> y todo lo relacionado a ella.</li>
-							<li>Crea una clase llamada <span class="code code-class">LevelController</span> con un método público <span class="code"><span class="code-reserved">void </span><span class="code-method">update</span>()</span></span> y un método público <span class="code"><span class="code-reserved">void </span><span class="code-method">render</span>(<span class="code-class">Graphics2D</span> <span class="code-var">g</span>)</span>.</li>
-							<li>Crea las 2 clases <span class="code code-class">FakeScrollLevel</span> y <span class="code code-class">CameraScrollLevel</span> que hereden de <span class="code code-class">LevelController</span> con las variables que se muestra en el UML y el constructor llamando a <span class="code"><span class="code-method">super</span>()</span>.</li>
-							<li>En GamePanel crea una variable privada tipo LevelController llamado <em>level</em>. En el constructor de GamePanel asigna a level una nueva instancia de la clase FakeScrollLevel() pasando PWIDTH y PHEIGHT como parametros al constructor de FakeScrollLevel. En gameRender() ejecuta <em>level.render((Graphics2D)dbg)</em> después del pintado del fondo. En gameUpdate() ejecuta <em>level.update()</em>.</li>
-						</ol>
+						<h2 class="proj-sub-title">Estructura</h2>
+						<div style="text-align: center; margin: 0 auto">
+							<p class="proj-sub-description">Esta vez vamos a implementar una clase así que sólo tenemos el diagrama UML de dicha clase.</p>
+
+							<img src="assets/AudioPlayer_UML.jpg" height="230px" >
+						</div>
 						
 					</div>
 
 					<div class="proj-content" id="pc-5">
-						<h2 class="proj-sub-title">Paso 2: Empezar Proyecto</h2>
-						<p class="proj-sub-description">En Java es necesario poner nuestros recursos externos, como imagenes, adentro de carpetas fuentes del proyecto. Por lo que vamos a crear una carpeta nueva dandole click izquierdo al nombre del proyecto en Eclipse y seleccionamos la opción: New>Folder y la nombramos 'res'. </p>
-						<p>Después damos nuevamente click izquierdo en el proyecto seguido de Build Path>Configure Build Path. En la pestaña de 'Libraries' le damos click al botón 'Add Class Folder' y seleccionamos la carpeta res en nuestro proyecto.</p>
-						<p>Una vez hecho lo anterior, descarga la imagen del fondo del link en la siguiente viñeta "References and Resources". Puedes arrastrar el archivo descargado al programa de Eclipse y después a la carpeta res. O puedes copiar/cortar y pegarlo usando el explorador de archivos, etc. Nada más asegurate de refrescar tu proyecto cada vez que le agregues archivos sin ponerlos directamente con Eclipse. Para esto dale click izquiero al nombre del proyecto y selecciona 'Refresh'.</p>
-						<p>Si todo esta hecho correctamente, deberá mostrarse en tu carpeta res en Eclipse el archivo "sback.png".</p>
-						
-						
-					</div>
-
-					<div class="proj-content" id="pc-6">
-						<h2 class="proj-sub-title">Scrolling Backgrounds</h2>
-						<p class="proj-sub-description">Hacer un 'scrolling background' es dar la ilusión visual al jugador de un fondo en el videojuego que va avanzando. Este es un efecto muy poderoso en videojuegos ya que crea una sensación de movimiento espacial adentro del juego.</p>
-						<p>IMPORTANCIA: Si en un juego con un mundo virtual relativamente grande, (mayor a la pantalla), no se presenta este efecto, puede ocasionar que el jugador se pierda fácilmente ya que no tendrá un punto de referencia para ubicarse. También puede usarse para indicar progreso a través de los niveles dejando claro al jugador que esta haciendo lo correcto.</p>
-						<br>
-						<br>
-						<p>Veremos 2 maneras de implementar este efecto. La primera, probablemente familiar, consiste en simularlo dibujando 2 veces el fondo para crear un bucle. La segunda, dibujamos un mundo mucho más amplio que la pantalla, y hacemos que la 'cámara' de la pantalla se vaya moviendo en nuestro mundo.</p>
-						<p>Ambas técnicas tienen ventajas y deventajas que se verán a continuación.</p>
+						<h2 class="proj-sub-title">Singleton</h2>
+						<div>
+							<p class="proj-sub-description">
+								Notarás en el diagrama anterior algo peculiar... El constructor de la clase es privado. Esto es muy común al usar el patrón de diseño <label class="code code-class">Singleton</label>. Este patrón nos sirve para facilitar el acceso a una clase desde cualquier parte del código del proyecto y forzar a que no haya más de una instancia de la clase en todo el software.
+								Esto se logra con un contructor privado y definiendo un método público y estático get() que se encarga de crear una instancia de la clase si no existera, y devolverla.
+								<br>Cosas que son notables de un Singleton:
+							</p>
+							<ol style="padding-left: 40px">
+								<li>Hay una variable <label class="code code-reserved">private static</label> llamada <label class="code code-var">instance</label> del tipo de la <label class="code code-class">clase</label>.</li>
+								<li>El <label class="code code-method">constructor</label> es <label class="code code-reserved">private</label> y ejecutado sólo 1 vez.</li>
+								<li>Hay un método <label class="code code-reserved">public static</label> <label class="code code-method">get()</label> que devuelve la instancia del Singleton.</li>
+							</ol>
+						</div>
 						
 					</div>
 
 					<div class="proj-content" id="pc-7">
-						<h2 class="proj-sub-title">Fake Scrolling</h2>
-						<p class="proj-sub-description">Como se muestra en la imagen, en esta técnica se dibuja 2 veces el fondo en diferentes posiciones. Llamemos a estas posiciones <em>back1_x</em> y <em>back2_x</em>. La idea es que la segunda imagen siempre esté por detrás de la primera, y de la misma forma, la primera esté por detrás de la segunda, mientras ambas avanzan con la misma velocidad. Esto crea un bucle infinito del fondo ya que cuando termina una imagen, la otra le sigue inmediatamente dando la ilusión que es el mismo fondo.</p>
-						<img src="assets/fake_scroll_mechanic.jpg" width="400">
+						<h2 class="proj-sub-title">Singleton</h2>
+						<div>
+							<p class="proj-sub-description">
+								Empezemos haciendo la clase <label class="code code-class">AudioPlayer</label> como un Singleton.
+								<br>
+								Para esto debe tener una variable <label class="code code-var">instancia</label>, un constructor que por el momento no hará nada y un método get() siguiendo las reglas de un Singleton.
+								<br>
+								<br>
+								En el método get() hay que primero checar que la variable <label class="code code-var">instacia</label> sea nula, y si lo es, hacemos que sea igual a un nuevo objeto AudioPlayer. Los contructores privados pueden usarse dentro de la propia clase aunque sea en un método get() estático.
+							</p>
+							
+						</div>
 						
 					</div>
+
 					<div class="proj-content" id="pc-8">
-						<h2 class="proj-sub-title">Fake Scrolling - Implementación</h2>
-						<p class="proj-sub-description">Para implementarlo usaremos las variables de la clase FakeScrollingLevel. Primero en el <em>constructor</em> tenemos que cargar nuestra imagen usando el metodo <em>read()</em> de ImageIO de la siguiente manera:</p>
-						<code style="background-color: white; color: blue">
-							try {<br>
-								&emsp;img = (BufferedImage)ImageIO.read(<br>&emsp;getClass().getClassLoader().getResource("./sback.png"));<br>
-							} catch (IOException e) {<br>
-								&emsp;// TODO Auto-generated catch block <br>
-								&emsp;e.printStackTrace();<br>
-							}
-						</code>
-						<p>Después inicializamos nuestras variables b1_xOff=0 y b2_xOff=b1_xOff+img.getWidth(). Esto es para que el comienzo del segundo fondo este inmediatamente después del final del primero.</p>
+						<h2 class="proj-sub-title">Getters y Setters</h2>
+						<div>
+							<p class="proj-sub-description">
+								Ya que tenemos la base de un singleton, podemos proceder a definir los métodos y atributos de información simple.
+								<br>
+								Define las 2 variables de volumen float, inicializalas en el constructor con un valor de 1.0f, y crea los métodos getters y setters correspondientes.
+								<br>
+								En los métodos setter asegurate de restringir el valor <span class="code code-var">volumen</span> asignado a un rango entre [0 y 1].
+								<br>
+								Esto lo puedes hacer simplemente con if's.
+							</p>
+							
+						</div>
 						
 					</div>
 					<div class="proj-content" id="pc-9">
-						<h2 class="proj-sub-title">Fake Scrolling - Implementación</h2>
-						<p>En <em>render(Graphics2D g)</em> sólo necesitamos dibujar 2 veces nuestro fondo usando el método <em>drawImage(img, x, y, null)</em> de Graphics. Aquí primero llamamos drawImage() con nuestra variable b1_xOff para x, y después llamamos de nuevo drawImage() pero con la variable b2_xOff en vez.</p>
-						<br>
-						<p>Por último, en <em>update()</em> primero movemos los offsets restandole a cada uno el valor de 5 para que se 'muevan' 5 pixeles a la izquierda. Después hay que checar si tenemos que colocar nuestro fondo en el comienzo de nuevo. Para esto en un if probamos si nuestro b1_xOff es menor o igual que - img.getWidth(), si se cumple la condición, entonces decimos que b1_xOff = img.getWidth(). Y hacemos un if similar para b2_xOff separado.</p>
+						<h2 class="proj-sub-title">Java Audio Clips</h2>
+						<div>
+							<p class="proj-sub-description">
+								Por la parte de sonido vamos a trabar con la clase/interfaz <span class="code code-class">Clip</span> de Java.
+								<br>
+								Esta interfaz representa un "stream" de un archivo tipo wav que esta listo para reproducirse en un dispositivo de salida ya designado por Java.
 
-						<br>
-						<p>Ya con eso solo nos queda probar dandole click en 'Run'!</p>
+								Para obtener un Clip clip usamos el método estático <label class="code code-method">AudioSystem.getClip()</label> : Clip.
+								<br>
+								Después hay que obtener un <label class="code code-class">AudioInputStream</label> stream usando el método <label class="code code-method">AudioSystem.getAudioInputStream(URL recurso)</label> : AudioInputStream.
+								<br>
+								Y finalmente usar el método <label class="code code-method">open(AudioInputStream)</label> del objeto clip, pasando stream como argumento.
+							</p>
+							
+						</div>
 						
 					</div>
+
 					<div class="proj-content" id="pc-10">
-						<h2 class="proj-sub-title">Fake Scrolling - Usos</h2>
-						
-						<p>Esta es una buena técnica para usar en juegos en donde los niveles son auto generados dinámicamente. Esto quiere decir que los elementos del juego como obstaculo o enemigos van 'apareciendo' a través del tiempo conforme el jugador juega. En este tipo de juegos los elementos generalmente no estan relacionados directamente con el fondo y su posición actual por lo que esta sencilla técnica, o alguna adaptación de ella, puede usarse sin problema. Además, es muy eficiente en cuanto a rendimiento ya que sólo tiene que siempre 2 copias del fondo.</p>
-						<br>
-						<p>Sin embargo, si se desea que el fondo se desplazca horizontal y verticalmente, puede ser más complicado de lo necesario. También si tienes un mapa grande bien definido con elementos estáticos o autónomos en varios puntos del mapa, tendrás que definir un sistema de coordenadas para que puedas renderizarlos trasladando sus posiciones respecto a donde se haya movido el jugador. Esto es mucha talacha en el código y además crea muchas dependencias innecesarias entre diferentes clases. Y recuerda que siempre hay que buscar reducir el acoplamiento entre clases para hacer más sencillo de entender y probar el software.</p>
+						<h2 class="proj-sub-title">Java Audio Clips</h2>
+						<div>
+							<p class="proj-sub-description">
+								Ya que tienes un Clip en memoria, podemos usar cualquiera de los siguientes métodos:
+							</p>
+							<ul style="padding-left: 30px">
+								<li><label class="code code-method">start()</label> Para reproducir el clip una sola vez.</li>
+								<li><label class="code code-method">stop()</label> Para parar la reproducción del clip.</li>
+								<li><label class="code code-method">setFramePosition(int index)</label> para especificar en que 'frame' o 'sample' posicionar el clip.</li>
+								<li><label class="code code-method">loop(Clip.LOOP_CONTINOUSLY)</label> Para reproducir cicladamente el clip.</li>
+								<li><label class="code code-method">getControl(Control.Type)</label> para obtener interfaces de control que cambiar los parametros de reprdoucción del Clip</li>
+							</ul>
+							
+						</div>
 						
 					</div>
 
 					<div class="proj-content" id="pc-11">
-						<h2 class="proj-sub-title">Camera Scrolling</h2>
-						<p class="proj-sub-description">Esta técnica consiste en dibujar todo el mundo completo tal como está y en donde está, y dejar más bien que la 'cámara' de la aplicación se mueva. De esta manera podemos por ejemplo dibujar multiples fondos fijos, uno después del otro, siempre en un mismo lugar.</p>
-						<p>En el juego primero se va a observar el primer fondo y conforme la camara vaya moviendo, se irán mostrando los siguientes o previos fondos.</p>
-						<img src="assets/camera_scroll_overview.png" width="400">
+						<h2 class="proj-sub-title">AudioPlayer Clips</h2>
+						<div>
+							<p class="proj-sub-description">
+								Los Clips, como las Imagenes, los podemos guardar para evitar estar cargandolos de archivos a cada rato.
+								<br>
+								Para esto definimos un Mapa de audios que guarda la correspondencia de el nombre de un clip (String) y el clip mismo (Clip). Usamos la estructura de datos <label class="code code-class">HashMap&lt;String, Clip&gt;</label> <label class="code code-var">audios</label> para esto.
+								<br>
+								Y la instanciamos en el contructor de la siguiente manera: "audios = new HashMap&lt;String, Clip&gt;();"
+							</p>
+							<br>
+							<p>Cada vez que vayamos a reproducir un nuevo sonido, vamos a checar si no tenemos ya el clip de dicho sonido en el mapa, y si lo tenemos, lo usamos. De lo contrario, creamos el clip como fue descrito en la hoja anterior y lo guardamos en el mapa.</p>
+							
+						</div>
 						
 					</div>
-					<div class="proj-content" id="pc-12">
-						<h2 class="proj-sub-title">Camera Scrolling - Implementación</h2>
-						<p class="proj-sub-description">Para implementarlo usaremos las variables de la clase CameraScrollingLevel. Primero en el <em>constructor</em> tenemos que cargar nuevamente nuestra imagen usando el metodo <em>read()</em> de ImageIO de la siguiente manera:</p>
-						<code style="background-color: white; color: blue">
-							try {<br>
-								&emsp;img = (BufferedImage)ImageIO.read(<br>&emsp;getClass().getClassLoader().getResource("./sback.png"));<br>
-							} catch (IOException e) {<br>
-								&emsp;// TODO Auto-generated catch block <br>
-								&emsp;e.printStackTrace();<br>
-							}
-						</code>
-						<p>Después inicializamos nuestra variable de posición camX = 0. Y definimos la cantidad fondos que queremos repetir en nuestro mundo, por ejemplo nBacks = 8.</p>
-						
-					</div>
-					<div class="proj-content" id="pc-13">
-						<h2 class="proj-sub-title">Camera Scrolling - Implementación</h2>
-						<p>En <em>render(Graphics2D g)</em> ahora dibujaremos nuestra imagen dentro de un for i=0 a nBacks, y en cada iteración ejecutamos <em>g.drawImage(img, i*img.getWidth(), 0, null);</em> para se dibujen los 8 fondos cada uno después del previo.
-						</p>
-						<p>Tambíen será necesario en <em>render()</em> simular nuestra camara y esto lo haremos con el método <em>tanslate(x,y)</em> de Graphics. Este método mueve todo el sistema de coordenadas que se utiliza para renderizar gráficos por lo que cuando hacemos <em>g.translate(-camX, 0);</em> es como si todo el plano se haya desplazado y el origen se ubique en camX. </p>
-						<br>
-						<p>Finalmente, en <em>update()</em> tenemos que mover hacia adelante nuestra cámara sumandole a camX el valor 5, para que se mueva 5 pixeles hacia en frente.</p>
 
-						<br>
-						<p>Ya con eso solo nos queda probar cambiando en GamePanel el tipo de LevelController creado de FakeScrollLevel a CameraScrollLevel y dandole click en 'Run'!</p>
+					<div class="proj-content" id="pc-12">
+						<h2 class="proj-sub-title">AudioPlayer - getSoundClip(String clipName) : Clip</h2>
+						<div>
+							<p class="proj-sub-description">
+								Crea el método privado <span class="code code-method">getSoundClip(String clipName)</span> y haz lo descrito anteriormente. Empieza checando si el clip existe en el mapa usando el método <span class="code code-method">get(String clipName)</span> que devuelve el Clip si lo encuentra o de lo contrario da null.
+								Sí existe el Clip en el mapa, inmediatamente lo devulves.
+								<br>
+								En caso de que no este, realiza los pasos para obtener un clip del archivo llamado <label class="code code-var">clipName</label>+".wav".
+								
+						</div>
 						
 					</div>
+
+					<div class="proj-content" id="pc-13">
+						<h2 class="proj-sub-title">AudioPlayer - getSoundClip(String clipName) : Clip</h2>
+						<div>
+							<p class="proj-sub-description">
+								Aquí algunos consejos:
+							</p>
+							<ul style="padding-left: 30px">
+									<li>La variable clip, declárala y defínela en seguida con el valor null para empezar.</li>
+									<li>Los métodos de AudioSystem lanzan excepciones por lo que deben de estar adentro de bloques <span class="code code-keyword">try-catch</span>.</li>
+									<li>En getAudioInputStream() hay que usar getClass().getClassLoader().getResource(...) como lo haciamos con las imagenes. Piensa que AudioSystem es como ImageIO.</li>
+									<li>Utiliza el método <span class="code code-method">put (clipName,clip)</span> de la clase HashMap para guardar el clip en el mapa</li>
+								</ul>
+						</div>
+						
+					</div>
+
 					<div class="proj-content" id="pc-14">
-						<h2 class="proj-sub-title">Camera Scrolling - Usos</h2>
-						
-						<p>Camera Scrolling es la contraparte de Fake Scrolling por lo que las ventajas de esta técnica cubren las desventajas de la anterior. Si se tiene un mundo o mapa extenso, con elementos en varios puntos del juego, se pueder renderizar todo el juego sin tomar en cuenta las ubicaciones de los elementos, ya que eventualmente la camara se moverá para renderizarlos en la pantalla. Por este motivo, esta técnica es la preferida cuando se hacen juegos de exploración o aventura o cualquier juego grande en 2D.</p>
-						<br>
-						<p>Desafortunadamente, hay un costo en rendimiento ya que se renderiza en cada momento TODO el juego completo y todos sus fondos. Esto puede hacer que tome un tiempo significativo si la cantidad de elementos es muy alta o el mapa y su fondo es muy grande. Se suele modificar para que solo se renderize aquello que esta dentro de los límites de la cámara, pero es implica una transformación grande a la estructura del proyecto, ya que se necesita implementar un Renderizador que sea selectivo y también una manera de búsqueda para retribuir en un tiempo eficiente los elementos del juego adentro de la vista de la cámara. Notesé también que es posible pasar más allá del último fondo y apartir se renderiza el fondo negro. Es por lo tanto necesario implementar una restricción de movimiento a la cámara para que no se salga de los límites del mapa.</p>
-						
+						<h2 class="proj-sub-title">AudioPlayer - playEffectSound(String audioName) : void</h2>
+						<div>
+							<p class="proj-sub-description">
+								En el método hay que obtener un clip usando <label class="code code-method">getSoundClip(audioName)</label>. Después establecemos el inicio del clip con el método <label class="code code-method">setFramePosition(0).</label> Utilizamos el método aun inexistente <label class="code code-method">setVolume(clip,float)</label> pasándole el soundClip recén obtenido y la variable <label class="code code-var">effectVolume</label>. Finalmente usamos el método <label class="code code-method">start()</label> del clip.
+							</p>
+						</div>
 					</div>
+
+					<div class="proj-content" id="pc-15">
+						<h2 class="proj-sub-title">AudioPlayer - playBackMusic(String audioName) : void</h2>
+						<div>
+							<p class="proj-sub-description">
+								Este método es casí igual a playEffectSound(). Sólo hay que usar <label class="code code-var">musicVolume</label> en vez de <label class="code code-var">effectVolume</label>, y parar la música actual si es que hay alguna.
+								<br>
+								Recuerda que la música actual esta en la variable <label class="code code-var">currentMusic</label>.
+								Y al finalizar hay que establecer currentMusic = audioName para actualizarlo.
+							</p>
+						</div>
+					</div>
+
+					<div class="proj-content" id="pc-16">
+						<h2 class="proj-sub-title">AudioPlayer - stopBackMusic() : void</h2>
+						<div>
+							<p class="proj-sub-description">
+								Aquí simplemente checamos si existe una música de fondo verficiando el valor de <label class="code code-var">currentMusic</label>. Si es diferente de <label class="code code-reserved">nulo</label>, obtenemos el Clip de currentMusic del mapa audios.
+								<br>
+								Ya que obtenemos el clip, hay que pararlo usando el método stop() y asignar <label class="code code-reserved">nulo</label> a <label class="code code-var">currentMusic</label>.
+							</p>
+						</div>
+					</div>
+
+					<div class="proj-content" id="pc-17">
+						<h2 class="proj-sub-title">AudioPlayer - setVolume(Clip soundClip, float volume) : void</h2>
+						<div>
+							<p class="proj-sub-description">
+								Incorpora el siguiente código para cambiar el volumen de un clip.
+								<img src="assets/change_volume.png"><br>
+								1) El código primero obtiene el 'MasterGain Control' o 'Control de Ganacia' del clip, que sirve para controlar la amplitud (volumen) del clip.
+								<br>
+								2) Después calcula el rango permitido de volumen.
+								<br>
+								3) Calcula el volumen en dicho rango.
+								<br>
+								4) Y finalmente lo asigna al control de ganacia.
+							</p>
+						</div>
+					</div>
+
+					<div class="proj-content" id="pc-18">
+						<h2 class="proj-sub-title">AudioPlayer - setMusicVolume() : void</h2>
+						<div>
+							<p class="proj-sub-description">
+								Finalmente hay que ajustar este método para que reasigne el volumen de música al currentMusic utlizando el método setVolume() nuevamente.
+							</p>
+						</div>
+					</div>
+
+					<div class="proj-content" id="pc-19">
+						<h2 class="proj-sub-title">AudioPlayer - Prueba</h2>
+						<div>
+							<p class="proj-sub-description">
+								Para probar esto descargar los siguientes archivos en recursos y guardalos adentro de la carpeta de recursos.
+								<br>
+								En el constructor de tu LevelController utilizado o GamePanel, pon el siguiente código:
+								<em>AudioPlayer.get().setMusicVolume(0.8f);<br>
+								AudioPlayer.get().playBackMusic("cowboys_music");<br>
+								AudioPlayer.get().playEffectSound("bats_snd");</em>
+							</p>
+						</div>
+					</div>
+
+					<div class="proj-content" id="pc-20">
+						<h2 class="proj-sub-title">AudioPlayer - Conclusiones</h2>
+						<div>
+							<p class="proj-sub-description">
+								Es de mencionar que en algunas de las páginas se han omitido instrucciones por falta de espacio. Así que de ser necesario, agrega suficiente código para que el proyecto este, como dicen en la industria, <em>"Safe & Sound"</em>.
+							</p>
+							<p class="proj-sub-description">
+								También nota que es posible generalizar las ideas de este sistema para que soporte cambio de volumenes en más "canales".
+								<br>
+								Esto puede ser conveniente cuando reproducimos sónidos que tienen diferentes prioridades.
+							</p>
+						</div>
+					</div>
+
+					<div class="proj-content" id="pc-21">
+						<h2 class="proj-sub-title">AudioPlayer - Recomendaciones</h2>
+						<div>
+							<p class="proj-sub-description">
+								Por último, te advierto que AudioSystem.getAudioInputStream() arroja una excepción <span class="code code-class">UnsupportedAudioFileException</span> cuando el archivo de sondido <strong>NO</strong> es .wav ó cuando el archivo esta corrupto o incompleto.
+							</p>
+						</div>
+					</div>
+
+					
+
 				</div>
 				<div class="proj-buttons">
 					<div><button class="btn back">Back</button></div>
@@ -215,8 +333,9 @@
 			<div id="references-container">
 				<h4>Links</h4>
 				<ul>
-					<li>Repositorio de Código de los Laboratorio: <a target="_blank" href="https://github.com/JJOL/BlueLabs_Code">https://github.com/JJOL/BlueLabs_Code</a></li>
-					<li>Fondo para el Laboratorio: <a download="sback.png" href="assets/sback.png" target="_blank">sback.png</a></li>
+					<li>Explicación de como funciona el Audio: <a target="_blank" href="https://www.youtube.com/watch?v=GjmcXfgKq78&list=PLEETnX-uPtBVpZvp-R2daNfy9k3-L-Q3u&index=4">https://www.youtube.com/watch?v=GjmcXfgKq78&list=PLEETnX-uPtBVpZvp-R2daNfy9k3-L-Q3u&index=4</a></li>
+					<li>Música de Fondo: <a download="bat-1.2.zip" href="assets/bats_snd.wav" target="_blank">bats_snd.wav</a></li>
+					<li>Efécto de Sonido: <a target="_blank" href="assets/cowboys_music.wav">cowboys_music.wav</a></li>
 				</ul>
 			</div>
 		</div>
@@ -228,8 +347,8 @@
 				<div id="ch-3-boss"></div>
 			</div>
 			<div class="ch-dialog">
-				<p>Buena suerte!</p>
-				<p>Te deseo lo mejor</p>
+				<p>Dato curioso. Invesitagando lo necesario para este hacer este proyecto me di cuenta que Processing, un proyecto que facilita la expresión artística en Java, muy completo y muy bueno, no cuenta con un sistema de reproducción de audio en su librería primordial.</p>
+				<p>Estamos haciendo algo pionero en Java. ¡Felicidades!</p>
 			</div>
 		</div>
 
