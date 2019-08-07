@@ -9,8 +9,6 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
-import com.sun.glass.events.KeyEvent;
-
 import clase.labs.MyWorld.snake.SnakeGame;
 
 
@@ -107,9 +105,6 @@ public class Game implements Runnable {
 		
 		public void tick()
 		{
-			if (Input.get().isKeyPressed(KeyEvent.VK_SPACE)) {
-				System.out.println("Space Pressed!");
-			}
 			snakeGame.tick();
 		}
 		
