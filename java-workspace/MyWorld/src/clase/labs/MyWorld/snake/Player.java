@@ -58,11 +58,6 @@ public class Player {
 		pos.add(new Vec2(x, y));
 		if (pos.size() > size) pos.remove(0);
 		
-		
-		if (input.isKeyPressed(KeyEvent.VK_SPACE)) {
-			size += 1;
-			System.out.println("Size is: " + size);
-		}
 	}
 	
 	public void render(Graphics2D g) {
