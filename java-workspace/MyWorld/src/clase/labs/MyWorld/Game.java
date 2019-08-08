@@ -9,6 +9,7 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
+import clase.labs.MyWorld.platform.PlatformGame;
 import clase.labs.MyWorld.snake.SnakeGame;
 
 
@@ -22,7 +23,8 @@ public class Game implements Runnable {
 		public static int WIDTH, HEIGHT;
 		private String title;
 		
-		SnakeGame snakeGame;
+		//SnakeGame snakeGame;
+		PlatformGame platGame;
 		
 		// Graficos
 		private BufferStrategy bs;
@@ -72,8 +74,10 @@ public class Game implements Runnable {
 		public void init()
 		{
 			System.out.println("Inicializando Juego");
-			snakeGame = new SnakeGame();
-			snakeGame.init();
+			 //snakeGame = new SnakeGame();
+			 //snakeGame.init();
+			 platGame = new PlatformGame();
+			 platGame.init();
 		}
 		
 		public synchronized void start()
@@ -105,7 +109,8 @@ public class Game implements Runnable {
 		
 		public void tick()
 		{
-			snakeGame.tick();
+			 //snakeGame.tick();
+			 platGame.tick();
 		}
 		
 		// El metodo render() se encarga de hacer el renderizado del juego
@@ -131,7 +136,8 @@ public class Game implements Runnable {
 			//g.setColor(Color.WHITE);
 			//g.drawString("Hello MyWorld!", width/2, height/2);
 			
-			snakeGame.render((Graphics2D)g);
+			//snakeGame.render((Graphics2D)g);
+			platGame.render((Graphics2D)g);
 			///////////////////////////////////////////////////
 			
 			// Deja de hacer uso del "pincel" para no consumir los recursos todo el tiempo
