@@ -53,7 +53,7 @@ public class Player {
 
 		int tx = (int)((x) / 32);
 		int ty = (int)((y+16+5) / 32);
-		if (level.getTile(tx, ty).isSolid()) {
+		if (level.getTile(tx, ty).isSolid(0, 5)) {
 			canJump = true;
 		}
 		
@@ -73,8 +73,8 @@ public class Player {
 		
 		if (vx != 0) {
 			int newx = (int)((x+vx) + (ox*xsign));
-			if (!level.getTile(newx/32, (int)((y-oy+padd)/32)).isSolid() &&
-				!level.getTile(newx/32, (int)((y+oy-padd)/32)).isSolid())
+			if (!level.getTile(newx/32, (int)((y-oy+padd)/32)).isSolid(vx, 0) &&
+				!level.getTile(newx/32, (int)((y+oy-padd)/32)).isSolid(vx, 0))
 				x += vx;
 			else {
 				// Move Until Hit
@@ -89,8 +89,8 @@ public class Player {
 		
 		if (vy != 0) {
 			int newy = (int)((y+vy) + (oy*ysign));
-			if (!level.getTile((int)((x-ox+padd)/32), newy/32).isSolid() &&
-				!level.getTile((int)((x+ox-padd)/32), newy/32).isSolid())
+			if (!level.getTile((int)((x-ox+padd)/32), newy/32).isSolid(0, vy) &&
+				!level.getTile((int)((x+ox-padd)/32), newy/32).isSolid(0, vy))
 				y += vy;
 			else {
 				// Move Until Hit

@@ -35,8 +35,8 @@ public class Level {
 		mapStr += "*        *          ";
 		mapStr += "*       *          *";
 		mapStr += "* +                *";
-		mapStr += "* ***         * *  *";
-		mapStr += "*           *** *  *";
+		mapStr += "* *tt         * *  *";
+		mapStr += "*           ****  *";
 		mapStr += "**  *********** ****";
 		mapStr += "  *                *";
 		mapStr += "   *************---*";
@@ -50,6 +50,8 @@ public class Level {
 				map[y][x] = new SolidBlock(x*32, y*32);
 			else if (mapStr.charAt(i) == '-')
 				map[y][x] = new WaterBlock(x*32, y*32);
+			else if (mapStr.charAt(i) == 't')
+				map[y][x] = new SemiSolidBlock(x*32, y*32);
 			else
 				map[y][x] = new AirBlock(x*32, y*32);
 			

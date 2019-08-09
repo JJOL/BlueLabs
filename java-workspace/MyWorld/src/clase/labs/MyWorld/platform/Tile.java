@@ -11,7 +11,7 @@ public abstract class Tile {
 		this.y = y;
 	}
 	
-	public boolean isSolid() {
+	public boolean isSolid(int vx, int vy) {
 		return false;
 	}
 	
