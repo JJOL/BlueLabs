@@ -2,32 +2,40 @@ package clase.labs.MyWorld.platform;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 
 import clase.labs.MyWorld.Input;
 
-public class Player {
+public class Player extends GameObject {
 	
 	private Level level; 
 
 	private int w, h;
-	
-	private float x, y;
 	private float vx, vy;
 	private float grav;
 	
 	private boolean canJump;
 	
+	private boolean done = false;
+	
+	int spx, spy;
+	
+	int lives;
+	float dt = 0f;
 	
 	public Player(int x, int y, Level level) {
+		super(x,y,level);
+		spx = x;
+		spy = y;
 		w = 32;
 		h = 32;
-	    this.x = x;
-	    this.y = y;
 	    vx = 0;
 	    vy = 0;
 	    grav = 0.2f;
 	    canJump = true;
+	    
+	    lives = 3;
 	    
 	    this.level = level;
 	}
@@ -59,6 +67,8 @@ public class Player {
 		
 		vy += grav;
 		if (vy > 7) vy = 7;
+		
+		dt += 0.1;
 	}
 	
 	public void move(int vx, int vy) {
@@ -133,5 +143,57 @@ public class Player {
 	public void render(Graphics2D g) {
 		g.setColor(Color.RED);
 		g.fillRect((int)x-16, (int)y-16, w, h);
+		
+		g.drawString("Lives: " + lives, 32, 32);
+		
+		
+		
+		int xx = (int)x + 64;
+		int yy = (int)y;
+		double rot = Math.PI/ + dt;
+		
+		g.translate(xx, yy);
+		g.rotate(dt);
+		g.fillRect(-32, -16, 64, 32);
+		g.rotate(-1*dt);
+		g.translate(-xx, -yy);
+		
+		xx = (int)x - 64;
+		g.translate(xx, yy);
+		g.rotate(dt);
+		g.fillRect(-32, -16, 64, 32);
+		g.rotate(-1*dt);
+		g.translate(-xx, -yy);
+	}
+
+	@Override
+	public void onCollision(GameObject other) {
+		if (other instanceof Door) {
+			Door door = (Door)other;
+			if (door.isOpen()) {
+				System.out.println("Level Completed!");
+			}
+		}
+		
+		else if (other instanceof Enemy) {
+			kill();
+		}
+	}
+	
+	public void kill() {
+		x = spx;
+		y = spy;
+		
+		lives--;
+		
+		if (lives <= 0) {
+			// Game Over!
+			level.gameOver();
+		}
+	}
+	
+	@Override
+	public Rectangle getAABBBox() {
+		return new Rectangle((int)(x-16),(int)(y-16),32,32);
 	}
 }

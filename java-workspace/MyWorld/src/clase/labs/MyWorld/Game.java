@@ -84,6 +84,8 @@ public class Game implements Runnable {
 		{
 			if (running) return;
 			// Hace que running pase al estado de true e inicia el thread principal
+			
+			//java.awt.EventQueue.invokeLater(this);
 			running = true;
 			thread = new Thread(this);
 			thread.start();
