@@ -22,7 +22,6 @@ public class Player extends GameObject {
 	int spx, spy;
 	
 	int lives;
-	float dt = 0f;
 	
 	public Player(int x, int y, Level level) {
 		super(x,y,level);
@@ -68,7 +67,7 @@ public class Player extends GameObject {
 		vy += grav;
 		if (vy > 7) vy = 7;
 		
-		dt += 0.1;
+		// dt += 0.1;
 	}
 	
 	public void move(int vx, int vy) {
@@ -148,22 +147,22 @@ public class Player extends GameObject {
 		
 		
 		
-		int xx = (int)x + 64;
-		int yy = (int)y;
-		double rot = Math.PI/ + dt;
-		
-		g.translate(xx, yy);
-		g.rotate(dt);
-		g.fillRect(-32, -16, 64, 32);
-		g.rotate(-1*dt);
-		g.translate(-xx, -yy);
-		
-		xx = (int)x - 64;
-		g.translate(xx, yy);
-		g.rotate(dt);
-		g.fillRect(-32, -16, 64, 32);
-		g.rotate(-1*dt);
-		g.translate(-xx, -yy);
+//		int xx = (int)x + 64;
+//		int yy = (int)y;
+//		double rot = Math.PI/ + dt;
+//		
+//		g.translate(xx, yy);
+//		g.rotate(dt);
+//		g.fillRect(-32, -16, 64, 32);
+//		g.rotate(-1*dt);
+//		g.translate(-xx, -yy);
+//		
+//		xx = (int)x - 64;
+//		g.translate(xx, yy);
+//		g.rotate(dt);
+//		g.fillRect(-32, -16, 64, 32);
+//		g.rotate(-1*dt);
+//		g.translate(-xx, -yy);
 	}
 
 	@Override

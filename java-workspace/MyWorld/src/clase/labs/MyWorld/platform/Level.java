@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import clase.labs.MyWorld.Game;
+import clase.labs.MyWorld.SpriteBuilder;
 
 public class Level {
 
@@ -21,6 +22,7 @@ public class Level {
 	private List<GameObject> objects;
 	
 	PlatformGame game;
+	
 	
 	public Level(PlatformGame _game) {
 		game = _game;
@@ -65,11 +67,15 @@ public class Level {
 			
 			char id = mapStr.charAt(i);
 			
+			SpriteBuilder builder = new SpriteBuilder("back/background.png", 32, 32);
+			builder.addImage(4, 0);
+			
+			
 			// Place Tile
 			Tile tile;
 			switch (id) {
 			case '*':
-				tile = new SolidBlock(x*32, y*32);
+				tile = new SolidBlock(x*32, y*32, builder.build());
 				break;
 			case '-':
 				tile = new WaterBlock(x*32, y*32);
@@ -108,7 +114,7 @@ public class Level {
 		for (int i=0; i < gridH; i++) {
 			for (int j=0; j < gridW; j++) {
 				g.setColor(Color.BLACK);
-				g.drawRect(j*32, i*32, 32, 32);
+				//g.drawRect(j*32, i*32, 32, 32);
 				if (map[i][j] != null)
 					map[i][j].render(g);
 			}
@@ -116,6 +122,8 @@ public class Level {
 	}
 	
 	public void render(Graphics2D g) {
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, 640, 480);
 		renderMap(g);
 		
 		for (GameObject obj : objects)
@@ -153,7 +161,7 @@ public class Level {
 	}
 	
 	public Tile getTile(int j, int i) {
-		if (i < 0 || i >= gridH || j < 0 || j >= gridW) return new SolidBlock(0,0);
+		if (i < 0 || i >= gridH || j < 0 || j >= gridW) return new SolidBlock(0,0, null);
 		return map[i][j];
 	}
 	
